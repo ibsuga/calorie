@@ -1,0 +1,30 @@
+.AddFoodPanel {
+    position: relative;
+
+    button {
+        position: inherit;
+        z-index: 2;
+    }
+
+    .button-open svg {
+        transition: 0.5s;
+    }
+
+    .button-close svg {
+        transform: rotateZ(225deg);
+        transition: 0.5s;
+    }
+
+    .food-panel {
+        position: absolute;
+        width: 40em;
+        height: 50em;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 8px;
+        background-color: hsla(0, 0%, 10%);
+        padding: 2em;
+    }
+
+}
