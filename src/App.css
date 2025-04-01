@@ -4,8 +4,12 @@
 
 
 :root {
-  --background-color: hsl(0, 0%, 15%);
-  --font-color-default: hsl(0, 0%, 80%);
+  --background-color: hsl(35, 85%, 95%);
+  --font-color-default: hsl(0, 0%, 30%);
+  --font-color-highlight: hsl(0, 0%, 15%);
+  /* --accent-color: hsl(135, 10%, 50%); */
+  --accent-color: #97a54f;
+  --accent-color-transparent: hsl(135, 10%, 50%, 0.5);
   --font-default: "Tomorrow";
   --font-title: "Galada";
 }
@@ -67,24 +71,19 @@ h1 {
   line-height: 1.1;
 }
 
+
 button {
   cursor: pointer;
   font-size: 1em;
   padding: 0.3em 0.6em;
   border: 1px solid transparent;
-
-
-
   border-radius: 8px;
   font-weight: 500;
   font-family: inherit;
-  background-color: hsl(0, 0%, 10%);
+  background-color: transparent;
   transition: border-color 0.25s;
 }
 
-button:hover {
-  border-color: #33b353;
-}
 
 button:focus,
 button:focus-visible {
