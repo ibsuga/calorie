@@ -1,7 +1,8 @@
 import './AddFoodPanel.css'
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { IoIosAddCircle } from 'react-icons/io';
+import { IoAdd } from "react-icons/io5";
+import { FaAppleWhole } from "react-icons/fa6";
 
 
 function AddFoodPanel() {
@@ -15,48 +16,49 @@ function AddFoodPanel() {
                 className={isPanelOpen ? 'button-close' : 'button-open'}
                 onClick={() => setIsPanelOpen(!isPanelOpen)}
             >
-                < IoIosAddCircle />
+                < IoAdd />
             </button>
-
             <AnimatePresence>
                 {
                     isPanelOpen &&
                     <motion.div
                         className='food-panel'
                         initial={{ opacity: 0, height: 0, width: 0 }}
-                        animate={{ opacity: 1, height: 600, width: 500 }}
+                        animate={{ opacity: 1, height: "auto", width: "auto" }}
                         exit={{ opacity: 0, height: 0, width: 0 }}
                         transition={{
                             type: "tween",
-                            duration: 0.3,
+                            duration: 0.25,
                             opacity: { ease: "easeInOut" }
                         }}
                     >
 
-                        <span className='panel-title'>Add food</span>
 
                         <motion.div className='panel-content'
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ type: "tween", duration: 0.05 }}
                         >
+                            <span className='panel-title'>Add food</span>
 
-                            <div className="icon-selector">
-                                <span>ICON SELECT</span>
-                            </div>
+                            <div className="panel-box">
 
-                            <div className='panel-input'>
-                                <label>Food name</label>
-                                <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
-                            </div>
+                                <button className="icon-selector">
+                                    <span><FaAppleWhole /></span>
+                                </button>
 
-                            <div className='panel-input'>
-                                <label>Calories (100 gr)</label>
-                                <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
-                            </div>
+                                <div className='panel-input food-name'>
+                                    <motion.input placeholder="Product name" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
+                                </div>
 
-                            <div className="macro-box">
+                                <hr />
+
+                                <div className='panel-input'>
+                                    <label>Calories (100 gr)</label>
+                                    <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
+                                </div>
+
 
                                 <div className='panel-input'>
                                     <label>Protein</label>
@@ -75,10 +77,19 @@ function AddFoodPanel() {
                                     <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
                                 </div>
                                 <div className='panel-input'>
-                                    <label></label>
+                                    <label>Salts</label>
                                     <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
                                 </div>
 
+                                <hr />
+
+                                <img src="src\assets\barcode.png" alt="" />
+
+                            </div>
+
+                            <div className="footer">
+                                <button>Save</button>
+                                <button>Cancel</button>
                             </div>
 
 
