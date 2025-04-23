@@ -33,7 +33,6 @@ function AddFoodPanel() {
                         }}
                     >
 
-
                         <motion.div className='panel-content'
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -50,6 +49,13 @@ function AddFoodPanel() {
 
                                 <div className='panel-input food-name'>
                                     <motion.input placeholder="Product name" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
+                                </div>
+
+                                <hr />
+
+                                <div className='panel-input'>
+                                    <label>Category</label>
+                                    <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
                                 </div>
 
                                 <hr />

@@ -1,0 +1,45 @@
+.CalorieBar {
+    width: 600px;
+    height: 20px;
+    border: 2px solid hsl(0, 0%, 20%, 0.8);
+    border-radius: var(--default-border-radius);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.CalorieBar-breakfast {
+    height: 100%;
+    background-color: blue;
+}
+
+.CalorieBar-lunch {
+    height: 100%;
+    background-color: rgb(0, 255, 34);
+}
+
+.CalorieBar-dinner {
+    height: 100%;
+    background-color: rgb(255, 204, 0);
+}
+
+.CalorieBar-snacks {
+    height: 100%;
+    background-color: rgb(0, 213, 255);
+}
+
+.CalorieBar-overflow {
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+}
+
+.CalorieBar-calories {
+    height: 100%;
+    display: flex;
+}
+
+.CalorieBar-excess {
+    height: 100%;
+    display: flex;
+}

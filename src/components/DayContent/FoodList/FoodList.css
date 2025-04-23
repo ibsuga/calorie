@@ -1,0 +1,38 @@
+.FoodList {
+    display: flex;
+    align-items: center;
+    width: 45em;
+    height: 1em;
+    padding: 1em;
+    gap: 2em;
+    border-radius: var(--default-border-radius);
+    cursor: pointer;
+
+    background: hsl(0, 0%, 70%, 0.5);
+    color: hsl(0, 0%, 15%);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: var(--default-border-radius);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    transition: 0.25s;
+
+    .food-image {
+        border: 1px solid red;
+    }
+
+    .food-data {
+        width: 100%;
+        border: 1px solid green;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2em;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px;
+
+    }
+
+}

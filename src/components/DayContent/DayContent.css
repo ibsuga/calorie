@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    width: 70%;
+    width: 60%;
     align-items: center;
-    padding: 1em;
-    gap: 2em;
+    padding: 1.5em;
+    gap: 0.5em;
     z-index: 1;
 
     /* GLASS */
@@ -20,27 +20,58 @@
     .filter-bar {
         display: flex;
         padding: 1em;
-        gap: 2em;
+        gap: 15em;
+        /* padding-bottom: 10px; */
+
+        .filter-meals {
+            display: flex;
+            gap: 1em;
+        }
+
+        .view-mode {
+            display: flex;
+            gap: 1em;
+
+            button {
+                height: 2.5em;
+                width: 2.5em;
+
+                svg {
+                    font-size: 1.5em;
+                }
+            }
+
+        }
 
         button {
             color: var(--font-color-default);
             background: hsl(0, 0%, 70%, 0.5);
             font-family: var(--font-default);
             border: 1px solid hsla(0, 0%, 100%, 0.1);
-            padding: 1em;
+            padding: 0.5em;
             transition: 0.25s;
 
             &:hover {
-                background-color: var(--accent-color-transparent);
+                background-color: hsl(0, 0%, 10%);
+                color: var(--font-color-contrast);
             }
 
             &:active {
-                background-color: hsl(0, 0%, 10%);
-                color: var(--font-color-contrast);
+                background-color: var(--accent-color-transparent);
+                color: var(--font-color-default);
             }
         }
     }
 
+
+    .food-display {
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
 
 
 }

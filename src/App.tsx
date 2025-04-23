@@ -18,6 +18,7 @@ function App() {
         <MenuBar />
 
         <DayContent />
+
       </div>
 
     </div>
