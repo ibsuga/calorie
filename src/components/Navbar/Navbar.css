@@ -23,7 +23,7 @@
     .icons {
         margin-left: auto;
 
-        svg {
+        .panel-button {
             font-size: 2.5em;
             cursor: pointer;
         }

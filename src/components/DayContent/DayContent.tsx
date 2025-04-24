@@ -4,6 +4,7 @@ import { PiCards } from "react-icons/pi";
 import { IoIosList } from "react-icons/io";
 import FoodCard from './FoodCard/FoodCard';
 import FoodList from './FoodList/FoodList';
+import AddFoodCard from './FoodCard/AddFoodCard';
 
 function DayContent() {
     return (
@@ -30,12 +31,14 @@ function DayContent() {
                 max_value={1500}
                 valueBreakfast={500}
                 valueLunch={100}
-                valueDinner={50}
+                valueDinner={534}
                 valueSnacks={300}
             />
 
 
             <div className="food-display">
+
+                <AddFoodCard />
 
                 <FoodCard />
                 <FoodCard />

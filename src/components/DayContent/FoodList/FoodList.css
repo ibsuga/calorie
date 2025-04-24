@@ -1,14 +1,15 @@
 .FoodList {
-    display: flex;
+    font-family: var(--font-default);
+    display: grid;
+    grid-template-columns: 1fr 10fr;
     align-items: center;
-    width: 45em;
-    height: 1em;
-    padding: 1em;
-    gap: 2em;
+    width: 40em;
+    height: 2.5em;
+    gap: 0.5em;
     border-radius: var(--default-border-radius);
     cursor: pointer;
 
-    background: hsl(0, 0%, 70%, 0.5);
+    background: hsl(0, 0%, 80%, 0.5);
     color: hsl(0, 0%, 15%);
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     border-radius: var(--default-border-radius);
@@ -18,21 +19,48 @@
     transition: 0.25s;
 
     .food-image {
-        border: 1px solid red;
+        color: hsl(0, 0%, 80%);
+        text-align: center;
+        font-size: 1.5em;
+        background-color: var(--accent-color-transparent);
+        background: linear-gradient(90deg, rgba(98, 165, 142, 1) 19%, rgba(98, 165, 142, 0.54) 80%, rgba(98, 165, 142, 0) 100%);
+        border-radius: 20px 0px 0px 20px;
+        width: 100%;
+        justify-self: center;
+
+        svg {
+            margin-top: 6px;
+        }
     }
 
     .food-data {
-        width: 100%;
-        border: 1px solid green;
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 2em;
+        grid-template-columns: 2fr 1fr 1fr;
+        align-items: center;
+
+        .food-name {
+            font-family: var(--font-title);
+            font-size: 1.2em;
+            color: var(--accent-color-transparent);
+            padding-top: 5px;
+        }
+
+        .food-grams {
+            font-size: 1em;
+        }
+
+        .calories {
+            font-size: 1em;
+
+            .number {
+                font-weight: bold;
+            }
+        }
+
     }
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px;
-
     }
-
 }

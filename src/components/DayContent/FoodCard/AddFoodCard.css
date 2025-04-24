@@ -1,0 +1,27 @@
+.AddFoodCard {
+    height: 10em;
+    width: 8em;
+    color: hsl(0, 0%, 35%);
+    font-family: var(--font-default);
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+
+    background: hsl(0, 0%, 70%, 0.5);
+    border: 1px solid hsla(0, 0%, 100%, 0.01);
+    border-radius: var(--default-border-radius);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: hsla(240, 30%, 28%, 0.25) 0px 30px 60px -12px inset, hsla(0, 0%, 0%, 0.3) 0px 18px 36px -18px inset;
+    transition: 0.25s;
+
+    &:hover {
+        background: hsl(0, 0%, 70%, 0.5);
+        box-shadow: hsl(240, 30%, 28%, 0.25) 0px 7px 20px -3px inset, hsla(0, 0%, 0%, 0.25) 0px 3px 8px -3px inset;
+        color: var(--font-color-default)
+    }
+
+    span {
+        font-size: 6em;
+    }
+}

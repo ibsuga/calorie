@@ -16,6 +16,7 @@
   --background-color: hsl(35, 85%, 95%);
   --font-color-default: hsl(0, 0%, 20%);
   --font-color-contrast: hsl(0, 0%, 80%);
+  --font-color-clear: hsl(0, 0%, 30%);
   --accent-color: hsl(160, 85%, 30%);
   --accent-color-transparent: hsl(160, 85%, 30%, 0.5);
   --font-default: "Outfit";

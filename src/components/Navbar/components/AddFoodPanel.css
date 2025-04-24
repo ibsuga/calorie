@@ -70,26 +70,6 @@
             gap: 1em;
 
 
-            .icon-selector {
-                width: 7em;
-                height: 7em;
-                background-color: var(--accent-color-transparent);
-                border: none;
-                border-radius: 5em;
-                align-content: center;
-                text-align: center;
-                transition: 0.15s;
-
-                svg {
-                    color: hsl(0, 0%, 80%);
-                    font-size: 4em;
-                }
-
-                &:active {
-                    transform: scale(0.95);
-                }
-            }
-
             /* FOOD NAME INPUT */
             .panel-input.food-name {
                 display: flex;

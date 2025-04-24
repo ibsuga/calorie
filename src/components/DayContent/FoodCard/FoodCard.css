@@ -1,11 +1,14 @@
 .FoodCard {
-    padding: 0.5em;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
     height: 10em;
     width: 8em;
     cursor: pointer;
+    font-family: var(--font-default);
+    text-align: center;
 
     /* GLASS */
-    background: hsl(0, 0%, 70%, 0.5);
+    background: hsl(0, 0%, 80%, 0.5);
     color: hsl(0, 0%, 15%);
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     border-radius: var(--default-border-radius);
@@ -17,6 +20,60 @@
     &:hover {
         transform: translateY(-5px);
         box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px;
-
     }
+
+
+
+    .food-image {
+        color: hsl(0, 0%, 80%);
+        text-align: center;
+        font-size: 1.5em;
+        background-color: var(--accent-color-transparent);
+        background: linear-gradient(180deg, rgba(98, 165, 142, 1) 19%, rgba(98, 165, 142, 0.54) 71%, rgba(98, 165, 142, 0) 100%);
+        border-radius: 20px 20px 0em 0em;
+        /* width: 2em; */
+        width: 100%;
+        justify-self: center;
+
+        svg {
+            margin-top: 5px;
+        }
+    }
+
+    .card-body {
+        display: grid;
+        grid-template-rows: 2fr 1fr 1fr;
+        padding: 0 0.5em;
+    }
+
+
+    .food-name {
+        padding-top: 5px;
+        height: 2em;
+        overflow: hidden;
+        line-height: 1em;
+
+        font-size: 1.2em;
+        color: var(--accent-color-transparent);
+        font-family: var(--font-title);
+    }
+
+    .calories {
+        font-size: 1em;
+        color: var(--font-color-clear);
+
+        .number {
+            font-weight: bold;
+        }
+    }
+
+    .food-grams {
+        font-size: 0.85em;
+        color: var(--font-color-clear);
+    }
+
+
+
+
+
 }

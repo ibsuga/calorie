@@ -2,7 +2,7 @@ import './AddFoodPanel.css'
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { IoAdd } from "react-icons/io5";
-import { FaAppleWhole } from "react-icons/fa6";
+import IconSelector from './IconSelector';
 
 
 function AddFoodPanel() {
@@ -16,7 +16,7 @@ function AddFoodPanel() {
                 className={isPanelOpen ? 'button-close' : 'button-open'}
                 onClick={() => setIsPanelOpen(!isPanelOpen)}
             >
-                < IoAdd />
+                < IoAdd className='panel-button' />
             </button>
             <AnimatePresence>
                 {
@@ -39,23 +39,14 @@ function AddFoodPanel() {
                             exit={{ opacity: 0 }}
                             transition={{ type: "tween", duration: 0.05 }}
                         >
-                            <span className='panel-title'>Add food</span>
+                            <span className='panel-title'>New Food</span>
 
                             <div className="panel-box">
 
-                                <button className="icon-selector">
-                                    <span><FaAppleWhole /></span>
-                                </button>
+                                <IconSelector />
 
                                 <div className='panel-input food-name'>
                                     <motion.input placeholder="Product name" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
-                                </div>
-
-                                <hr />
-
-                                <div className='panel-input'>
-                                    <label>Category</label>
-                                    <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
                                 </div>
 
                                 <hr />
@@ -65,6 +56,7 @@ function AddFoodPanel() {
                                     <motion.input placeholder="-" type="text" whileHover={{ scale: 1.05 }} transition={{ duration: 0 }} />
                                 </div>
 
+                                <hr />
 
                                 <div className='panel-input'>
                                     <label>Protein</label>
@@ -95,7 +87,7 @@ function AddFoodPanel() {
 
                             <div className="footer">
                                 <button>Save</button>
-                                <button>Cancel</button>
+                                <button onClick={() => setIsPanelOpen(false)}>Cancel</button>
                             </div>
 
 

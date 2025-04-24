@@ -11,27 +11,27 @@
 
 .CalorieBar-breakfast {
     height: 100%;
-    background-color: blue;
+    background-color: hsl(55, 70%, 75%);
 }
 
 .CalorieBar-lunch {
     height: 100%;
-    background-color: rgb(0, 255, 34);
+    background-color: hsl(18, 70%, 65%);
 }
 
 .CalorieBar-dinner {
     height: 100%;
-    background-color: rgb(255, 204, 0);
+    background-color: hsl(203, 70%, 65%);
 }
 
 .CalorieBar-snacks {
     height: 100%;
-    background-color: rgb(0, 213, 255);
+    background-color: hsl(293, 70%, 65%);
 }
 
 .CalorieBar-overflow {
     height: 100%;
-    background-color: rgb(255, 0, 0);
+    background-color: hsl(0, 70%, 65%);
 }
 
 .CalorieBar-calories {
