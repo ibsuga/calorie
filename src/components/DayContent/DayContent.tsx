@@ -47,7 +47,7 @@ function DayContent() {
                 <FoodCard />
                 <FoodCard />
 
-                <FoodList />
+                {/* <FoodList /> */}
 
 
             </div>

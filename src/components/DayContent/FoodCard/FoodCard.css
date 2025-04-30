@@ -6,6 +6,7 @@
     cursor: pointer;
     font-family: var(--font-default);
     text-align: center;
+    user-select: none;
 
     /* GLASS */
     background: hsl(0, 0%, 80%, 0.5);
@@ -70,6 +71,23 @@
     .food-grams {
         font-size: 0.85em;
         color: var(--font-color-clear);
+
+        .grams {
+            font-family: var(--font-default);
+            background-color: transparent;
+            border: none;
+            width: 3em;
+            text-align: center;
+
+            ::placeholder {
+                font-weight: bold;
+                color: red;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
     }
 
 

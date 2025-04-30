@@ -24,4 +24,32 @@
     span {
         font-size: 6em;
     }
+
+}
+
+.p-dialog {
+
+    width: 72em;
+    height: 45em;
+    top: 6em;
+    background: hsl(0, 0%, 70%, 0.5);
+    color: hsl(0, 0%, 15%);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: var(--default-border-radius);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 1em;
+
+    .p-dialog-header-close-icon {
+        height: 1.5em;
+        width: 2em;
+    }
+
+    .dialog-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 2em;
+        align-items: center;
+    }
 }

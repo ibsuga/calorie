@@ -12,7 +12,9 @@ interface foodIconsI { [key: string]: JSX.Element };
 
 
 
-function IconSelector() {
+function IconSelector(props: {
+    setCategory: (icon: string) => void,
+}) {
 
     const [isSelectorOpen, setIsSelectorOpen] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState("meat");
@@ -29,6 +31,7 @@ function IconSelector() {
     function handleSelectIcon(type: string) {
         setSelectedIcon(type);
         setIsSelectorOpen(false);
+        props.setCategory(type);
     }
 
 

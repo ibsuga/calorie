@@ -1,10 +1,10 @@
-.FoodList {
+.LibraryList {
     font-family: var(--font-default);
     display: grid;
     grid-template-columns: 1fr 10fr;
     align-items: center;
-    width: 40em;
-    height: 2.5em;
+    width: 60em;
+    height: 3em;
     gap: 0.5em;
     border-radius: var(--default-border-radius);
     cursor: pointer;
@@ -21,7 +21,7 @@
     .food-image {
         color: hsl(0, 0%, 80%);
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.85em;
         background-color: var(--accent-color-transparent);
         background: linear-gradient(90deg, rgba(98, 165, 142, 1) 19%, rgba(98, 165, 142, 0.54) 80%, rgba(98, 165, 142, 0) 100%);
         border-radius: 20px 0px 0px 20px;
@@ -35,7 +35,7 @@
 
     .food-data {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 2fr 1fr;
         align-items: center;
 
         .food-name {
@@ -56,10 +56,33 @@
                 font-weight: bold;
             }
         }
+
+        .macros {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 0.5em;
+
+            div {
+                line-height: 20px;
+                display: grid;
+                align-items: center;
+                text-align: center;
+
+                .macro-name {
+                    font-style: italic;
+                    font-weight: 500;
+                }
+            }
+        }
     }
 
     &:hover {
         transform: translateY(-3px);
         box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px;
+    }
+
+    button {
+        width: 5em;
+        justify-self: center;
     }
 }
