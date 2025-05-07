@@ -1,4 +1,4 @@
-.LibraryList {
+.Libraryitem {
     font-family: var(--font-default);
     display: grid;
     grid-template-columns: 1fr 10fr;

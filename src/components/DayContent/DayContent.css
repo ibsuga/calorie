@@ -65,11 +65,20 @@
 
 
     .food-display {
-        display: flex;
-        justify-content: space-between;
-        gap: 1em;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        max-width: 80%;
+
+        .food {
+            padding: 1em;
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+
+
 
     }
 

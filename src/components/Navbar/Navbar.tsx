@@ -1,3 +1,4 @@
+import LibraryDialog from '../LibraryDialog/LibraryDialog';
 import AddFoodPanel from './components/AddFoodPanel';
 import './Navbar.css';
 
@@ -9,6 +10,9 @@ function Navbar() {
             <span className='title'>Calorie</span>
 
             <div className="icons">
+
+                <LibraryDialog />
+
                 <AddFoodPanel />
             </div>
 

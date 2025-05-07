@@ -1,12 +1,15 @@
-import CalorieBar from './CalorieBar/CalorieBar';
 import './DayContent.css';
+import CalorieBar from './CalorieBar/CalorieBar';
 import { PiCards } from "react-icons/pi";
 import { IoIosList } from "react-icons/io";
-import FoodCard from './FoodCard/FoodCard';
-import FoodList from './FoodList/FoodList';
-import AddFoodCard from './FoodCard/AddFoodCard';
+import MealDisplay from './MealDisplay/MealDisplay';
+import { useState } from 'react';
+
 
 function DayContent() {
+
+    const [isListView, setIsListView] = useState(false);
+
     return (
         <div className="DayContent">
 
@@ -21,8 +24,8 @@ function DayContent() {
                 </div>
 
                 <div className="view-mode">
-                    <button> <PiCards /> </button>
-                    <button><IoIosList /></button>
+                    <button onClick={() => setIsListView(false)}> <PiCards /> </button>
+                    <button onClick={() => setIsListView(true)}><IoIosList /> </button>
                 </div>
 
             </div>
@@ -38,17 +41,13 @@ function DayContent() {
 
             <div className="food-display">
 
-                <AddFoodCard />
+                <MealDisplay meal="breakfast" isListView={isListView} />
 
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
-                <FoodCard />
+                <MealDisplay meal="lunch" isListView={isListView} />
 
-                {/* <FoodList /> */}
+                <MealDisplay meal="dinner" isListView={isListView} />
 
+                <MealDisplay meal="snacks" isListView={isListView} />
 
             </div>
         </div>

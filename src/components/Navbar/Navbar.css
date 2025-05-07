@@ -21,7 +21,10 @@
     }
 
     .icons {
+        display: flex;
+        gap: 2em;
         margin-left: auto;
+        align-items: center;
 
         .panel-button {
             font-size: 2.5em;

@@ -1,7 +1,8 @@
 import useFoodStore from '../../../store/FoodStore';
-import './LibraryList.css';
+import { mealType } from '../../../store/FoodStore';
+import './Libraryitem.css';
 
-function LibraryList(props: {
+function LibraryItem(props: {
     id: number,
     category: string,
     name: string,
@@ -11,12 +12,22 @@ function LibraryList(props: {
     fats: number,
     fibre: number,
     salts: number,
+    meal?: mealType,
+    canDelete: boolean,
+    onClick?: () => void,
 }) {
-    const deleteFood = useFoodStore((state) => state.deleteFood);
+
     const categoryIcons = useFoodStore((state) => state.categoryIcons);
+    const deleteFood = useFoodStore((state) => state.deleteFood);
+
+    const handleDeleteFood = (e: React.MouseEvent) => {
+        e.preventDefault()
+        deleteFood(props.id)
+    }
 
     return (
-        <div className="LibraryList">
+
+        <div className="Libraryitem" onClick={props.onClick}>
 
             <div className='food-image'>
                 <div>{categoryIcons[props.category]}</div>
@@ -56,11 +67,12 @@ function LibraryList(props: {
                     </div>
                 </div>
 
-                <button onClick={() => deleteFood(props.id)}>Delete</button>
+                {props.canDelete && <button onClick={handleDeleteFood}>Delete</button>}
+
             </div>
 
         </div>
     )
 }
 
-export default LibraryList;
+export default LibraryItem;

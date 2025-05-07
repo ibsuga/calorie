@@ -26,4 +26,65 @@
         cursor: pointer;
         font-size: 2em;
     }
+
+
+    .p-calendar {
+        width: 45em;
+        height: 2em;
+    }
+
+    .p-inputtext {
+        background-color: transparent;
+        border-radius: var(--default-border-radius);
+        cursor: pointer;
+        caret-color: transparent;
+        user-select: none;
+
+        text-align: center;
+        font-family: var(--font-default);
+        font-size: 1em;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.p-datepicker {
+    padding: 1em;
+    font-family: var(--font-default);
+
+    background: hsl(0, 0%, 70%, 0.5);
+    color: hsl(0, 0%, 15%);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: var(--default-border-radius);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+
+    .p-datepicker-today {
+        background-color: hsl(0, 0%, 80%, 0.5);
+        border-radius: var(--default-border-radius);
+        font-weight: 800;
+        color: var(--accent-color);
+    }
+
+    .p-datepicker-month {
+        width: 5em;
+        border-radius: 1em 0em 0em 1em;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+
+    .p-datepicker-year {
+        width: 5em;
+        border-radius: 0em 1em 1em 0em;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
 }

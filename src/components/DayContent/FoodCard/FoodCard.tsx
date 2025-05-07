@@ -1,33 +1,57 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './FoodCard.css';
 import { TbMeat } from "react-icons/tb";
+import useFoodStore, { mealType } from '../../../store/FoodStore';
+import { DateContext } from '../../../App';
+import { MdDeleteOutline } from "react-icons/md";
 
 
-function FoodCard() {
-
+function FoodCard(props: {
+    name: string,
+    id: number,
+    meal: mealType,
+    calories: number,
+    isListView?: boolean
+}) {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isDeleteHovered, setIsDeleteHovered] = useState(false);
+    const dateId = useContext(DateContext);
     const [foodGrams, setFoodGrams] = useState(100);
 
+    const removeFoodFromHistory = useFoodStore((state) => state.removeFoodFromHistory);
 
-
-    const test_food = {
-        'base-grams': 100,
-        'base-calories': 300,
+    function handleDeleteFromLibrary() {
+        if (dateId) {
+            removeFoodFromHistory(dateId, props.meal, props.id)
+        }
     }
 
-    const calories_calc = foodGrams * test_food['base-calories'] / test_food['base-grams'];
+    const calories_calc = foodGrams * props.calories / 100;
 
 
     return (
-        <div className="FoodCard">
+        <div
+            className={`FoodCard ${props.isListView ? "list" : ""}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
 
-            <div className="food-image"><TbMeat /></div>
+            <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
+                <div><TbMeat /></div>
+                {isHovered &&
+                    <div
+                        onClick={handleDeleteFromLibrary}
+                        onMouseEnter={() => setIsDeleteHovered(true)}
+                        onMouseLeave={() => setIsDeleteHovered(false)}
+                    >
+                        <MdDeleteOutline />
+                    </div>
+                }
+            </div>
 
-            <div className="card-body">
-
-                <div className="food-name"> Pechuga de Pollo </div>
-
+            <div className="food-data">
+                <div className="food-name">{props.name}</div>
                 <div className="calories">
-
                     <span className='number'>{calories_calc}</span>
                     <span> kcal</span>
                 </div>
@@ -35,9 +59,7 @@ function FoodCard() {
                     <input type="text" className='grams' placeholder='0' value={foodGrams} onChange={(e) => setFoodGrams(Number(e.target.value))} />
                     <span>gr</span>
                 </div>
-
             </div>
-
 
         </div>
     )

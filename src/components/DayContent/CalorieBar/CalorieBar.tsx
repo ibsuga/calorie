@@ -15,7 +15,6 @@ function CalorieBar(props: {
     if (overflow_value > 0) {
         calculated_max_value += overflow_value
     }
-    console.log(overflow_value);
 
     return (
         <div className="CalorieBar">
