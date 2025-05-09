@@ -80,3 +80,19 @@
         }
     }
 }
+
+@media screen and (max-width:600px) {
+    .p-dialog {
+        width: 85%;
+        height: 85%;
+        top: 5em;
+
+        .dialog-content {
+            padding: 0em;
+
+            .dialog-title {
+                font-size: 1.75em;
+            }
+        }
+    }
+}

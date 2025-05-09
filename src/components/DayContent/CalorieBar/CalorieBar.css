@@ -1,5 +1,7 @@
 .CalorieBar {
-    width: 600px;
+    /* width: 600px; */
+    width: 100%;
+    ;
     height: 20px;
     border: 2px solid hsl(0, 0%, 20%, 0.8);
     border-radius: var(--default-border-radius);

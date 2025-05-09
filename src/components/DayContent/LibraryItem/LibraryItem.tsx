@@ -1,5 +1,7 @@
 import useFoodStore from '../../../store/FoodStore';
 import { mealType } from '../../../store/FoodStore';
+import { MdDeleteOutline } from "react-icons/md";
+
 import './Libraryitem.css';
 
 function LibraryItem(props: {
@@ -37,12 +39,16 @@ function LibraryItem(props: {
 
                 <div className="food-name">{props.name}</div>
 
+
+
                 <div className="calories">
                     <span className='number'>{props.calories}</span>
-                    <span> kcal</span>
+                    <span>kcal</span>
                 </div>
 
-                <div className="food-grams">100 gr</div>
+                {/* <div className="food-grams">100 gr</div> */}
+
+
 
                 <div className="macros">
                     <div>
@@ -67,9 +73,9 @@ function LibraryItem(props: {
                     </div>
                 </div>
 
-                {props.canDelete && <button onClick={handleDeleteFood}>Delete</button>}
 
             </div>
+            {props.canDelete && <button onClick={handleDeleteFood}><MdDeleteOutline /></button>}
 
         </div>
     )

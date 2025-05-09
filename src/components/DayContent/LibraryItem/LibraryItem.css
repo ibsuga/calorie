@@ -86,3 +86,76 @@
         justify-self: center;
     }
 }
+
+@media screen and (max-width:600px) {
+
+    .Libraryitem {
+        width: 100%;
+        height: 100%;
+        padding: 0em;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        gap: 1.5em;
+
+
+        .food-image {
+            font-size: 2.5em;
+            width: 1.25em;
+            height: 100%;
+
+            svg {
+                margin-top: 25px;
+                margin-right: 5px;
+                font-size: 0.75em;
+            }
+        }
+
+        .food-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+            .food-name {
+                font-size: 1em;
+                grid-column-start: 1;
+                grid-column-end: 4;
+            }
+
+            .calories {
+                font-size: 0.75em;
+                grid-column-start: 5;
+                display: flex;
+                gap: 0.1em;
+            }
+
+            .food-grams {
+                font-size: 0.75em;
+                grid-column-start: 5;
+            }
+
+            .macros {
+                display: flex;
+                font-size: 0.75em;
+                justify-content: center;
+                grid-column-start: 1;
+                grid-column-end: 6;
+                gap: 1em;
+            }
+        }
+
+        button {
+            width: 2.5em;
+            height: 5em;
+            font-size: 1em;
+            align-items: center;
+            justify-items: center;
+            border-radius: 0em 1em 1em 0em;
+
+            svg {
+                font-size: 1.5em;
+            }
+
+        }
+
+    }
+}

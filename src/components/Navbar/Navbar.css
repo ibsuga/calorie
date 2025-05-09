@@ -32,3 +32,29 @@
         }
     }
 }
+
+
+@media screen and (max-width: 600px) {
+
+    .Navbar {
+        display: grid;
+        width: 90%;
+        padding: 0.25em 0.2em;
+        grid-template-columns: 1fr 2fr;
+
+        .title {
+            font-size: 2em;
+            margin-left: 0.25em;
+        }
+
+        .icons {
+            display: flex;
+            gap: 1em;
+
+            .panel-button {
+                font-size: 2em;
+            }
+        }
+
+    }
+}
