@@ -26,6 +26,11 @@ function FoodCard(props: {
         }
     }
 
+    function handleTouchHover() {
+        setIsHovered(!isHovered)
+        setIsDeleteHovered(!isDeleteHovered)
+    }
+
     const calories_calc = foodGrams * props.calories / 100;
 
 
@@ -37,8 +42,7 @@ function FoodCard(props: {
         >
 
             <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
-                <div><TbMeat /></div>
-                {isHovered &&
+                {isHovered ?
                     <div
                         onClick={handleDeleteFromLibrary}
                         onMouseEnter={() => setIsDeleteHovered(true)}
@@ -46,10 +50,13 @@ function FoodCard(props: {
                     >
                         <MdDeleteOutline />
                     </div>
+                    :
+                    <div><TbMeat /></div>
+
                 }
             </div>
 
-            <div className="food-data">
+            <div className="food-data" onTouchStart={handleTouchHover}>
                 <div className="food-name">{props.name}</div>
                 <div className="calories">
                     <span className='number'>{calories_calc}</span>

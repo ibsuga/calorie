@@ -3,7 +3,6 @@
     grid-template-rows: 1fr 3fr;
     height: 10em;
     width: 8em;
-    cursor: pointer;
     font-family: var(--font-default);
     text-align: center;
     user-select: none;
@@ -38,21 +37,22 @@
         width: 100%;
         justify-self: center;
         transition: 0.25s;
+        display: flex;
+        gap: 1em;
+        flex-wrap: nowrap;
+        justify-content: center;
 
         svg {
             margin-top: 5px;
         }
 
-        display: flex;
-        gap: 1em;
-        flex-wrap: nowrap;
-        justify-content: center;
     }
 
     .food-image.delete-mode {
         background-color: tomato;
         /* background: linear-gradient(180deg, rgb(165, 98, 98) 19%, rgba(165, 98, 98, 0.54) 71%, rgba(98, 165, 142, 0) 100%); */
-        transition: 0.4s
+        transition: 0.4s;
+        cursor: pointer
     }
 
     .card-body {
@@ -116,16 +116,13 @@
 
 .FoodCard.list {
     font-family: var(--font-default);
-    display: grid;
-    grid-template-columns: 1fr 10fr;
+    display: flex;
     align-items: center;
     width: 40em;
     height: 2.5em;
-    gap: 0.5em;
     border-radius: var(--default-border-radius);
-    cursor: pointer;
+    background: rgb(217, 217, 217);
 
-    background: hsl(0, 0%, 80%, 0.5);
     color: hsl(0, 0%, 15%);
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     border-radius: var(--default-border-radius);
@@ -134,14 +131,18 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     transition: 0.25s;
 
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+
     .food-image {
         color: hsl(0, 0%, 80%);
         text-align: center;
         font-size: 1.5em;
         background-color: var(--accent-color-transparent);
-        background: linear-gradient(90deg, rgba(98, 165, 142, 1) 19%, rgba(98, 165, 142, 0.54) 80%, rgba(98, 165, 142, 0) 100%);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.192) 20%, rgba(255, 255, 255, 0.54) 85%, rgb(217, 217, 217) 100%);
+        background-color: rgba(98, 165, 142, 1);
         border-radius: 20px 0px 0px 20px;
-        width: 100%;
+        width: 10%;
         justify-self: center;
 
         svg {
@@ -149,24 +150,41 @@
         }
     }
 
+    .food-image.delete-mode {
+        background-color: tomato;
+        /* background: linear-gradient(180deg, rgb(165, 98, 98) 19%, rgba(165, 98, 98, 0.54) 71%, rgba(98, 165, 142, 0) 100%); */
+        transition: 0.4s;
+        cursor: pointer;
+    }
+
     .food-data {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        display: flex;
+        flex: 1;
+        gap: 1em;
+        flex-direction: row;
         align-items: center;
+        width: 100%;
 
         .food-name {
+            display: grid;
             font-family: var(--font-title);
             font-size: 1.2em;
             color: var(--accent-color-transparent);
             padding-top: 5px;
+            width: 15em;
+            text-align: start;
+            line-height: 1.75em;
+            padding-left: 1em;
         }
 
         .food-grams {
             font-size: 1em;
+            width: 5em;
         }
 
         .calories {
             font-size: 1em;
+            width: 5em;
 
             .number {
                 font-weight: bold;
@@ -178,4 +196,48 @@
         transform: translateY(-3px);
         box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px;
     }
+}
+
+
+@media screen and (max-width:600px) {
+
+
+    .FoodCard.list {
+
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .food-image {
+            width: 2em;
+            height: 100%;
+        }
+
+        .food-data {
+            display: flex;
+
+            .food-name {
+                width: 8em;
+                font-size: 1em;
+            }
+
+            .food-grams {
+                display: grid;
+                font-size: 0.75em;
+                justify-content: center;
+            }
+
+            .calories {
+                font-size: 0.75em;
+                display: grid;
+                justify-content: center;
+
+                .number {
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+    }
+
 }

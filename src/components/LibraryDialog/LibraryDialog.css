@@ -19,4 +19,19 @@
         font-size: 2em;
         font-family: var(--font-title);
     }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .LibraryDialog {
+        & span {
+            font-family: var(--font-title);
+            font-size: 1.5em;
+            margin: 0.5em;
+            transition: 0.5s;
+
+        }
+    }
 }

@@ -10,18 +10,27 @@ function DayContent() {
 
     const [isListView, setIsListView] = useState(false);
 
+    const [calorieLimit, setCalorieLimit] = useState(0);
+
     return (
         <div className="DayContent">
 
             <div className="filter-bar">
 
-                <div className="filter-meals">
+                <div className="calorie-counter">
+                    <span> 1500 /</span>
+                    <input type="text" value={calorieLimit} onChange={(e) => setCalorieLimit(Number(e.target.value))} />
+                    <span>kcal</span>
+
+                </div>
+
+                {/* <div className="filter-meals">
                     <button>Breakfast</button>
                     <button>Lunch</button>
                     <button>Dinner</button>
                     <button>Snacks</button>
                     <button>All</button>
-                </div>
+                </div> */}
 
                 <div className="view-mode">
                     <button onClick={() => setIsListView(false)}> <PiCards /> </button>
@@ -31,7 +40,7 @@ function DayContent() {
             </div>
 
             <CalorieBar
-                max_value={1500}
+                max_value={calorieLimit}
                 valueBreakfast={500}
                 valueLunch={100}
                 valueDinner={534}

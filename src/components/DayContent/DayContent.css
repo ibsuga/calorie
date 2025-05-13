@@ -21,12 +21,44 @@
         display: flex;
         padding: 1em;
         gap: 15em;
-        /* padding-bottom: 10px; */
+        align-items: center;
+        justify-content: space-evenly;
 
-        .filter-meals {
+        .calorie-counter {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            font-family: var(--font-default);
+            justify-items: center;
+            padding: 0.5em;
+            /* width: 8em; */
+
+            background: hsl(0, 0%, 70%, 0.5);
+            color: hsl(0, 0%, 15%);
+            border: 1px solid hsla(0, 0%, 100%, 0.1);
+            border-radius: var(--default-border-radius);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            input {
+                background: none;
+                border: none;
+                font-family: var(--font-default);
+                max-width: 3em;
+                min-width: 1em;
+                font-size: 1em;
+                font-weight: 600;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        /* .filter-meals {
             display: flex;
             gap: 1em;
-        }
+        } */
 
         .view-mode {
             display: flex;
@@ -67,7 +99,7 @@
     .food-display {
         justify-items: center;
         align-items: center;
-        max-width: 80%;
+        width: 100%;
 
         .food {
             padding: 1em;
@@ -77,10 +109,22 @@
             gap: 1em;
         }
 
-
-
-
     }
 
+}
 
+@media screen and (max-width: 600px) {
+    .DayContent {
+        width: 100%;
+        padding: 0.5em;
+
+        .filter-bar {
+            width: 100%;
+            gap: 1em;
+        }
+
+        .food-display {
+            width: 100%;
+        }
+    }
 }

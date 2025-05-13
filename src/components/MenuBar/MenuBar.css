@@ -79,6 +79,10 @@
         }
     }
 
+    .p-datepicker-other-month {
+        color: hsl(0, 0%, 10%, 0.2);
+    }
+
     .p-datepicker-year {
         width: 5em;
         border-radius: 0em 1em 1em 0em;
@@ -87,4 +91,33 @@
             color: var(--accent-color);
         }
     }
+
+    td {
+        padding: 0.5em;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .MenuBar {
+        width: 85%;
+
+        .p-calendar {
+            width: 15em;
+        }
+    }
+
+    .p-datepicker {
+
+        .p-datepicker-other-month {
+            color: hsl(0, 0%, 10%, 0.2);
+        }
+
+        td {
+            padding: 0.5em;
+        }
+
+    }
+
 }
