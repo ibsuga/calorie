@@ -82,6 +82,14 @@
 }
 
 @media screen and (max-width:600px) {
+
+    .AddFoodDialog {
+
+        .section-title {
+            font-size: 1.25em;
+        }
+    }
+
     .p-dialog {
         width: 85%;
         height: 85%;

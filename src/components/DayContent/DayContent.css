@@ -99,7 +99,7 @@
     .food-display {
         justify-items: center;
         align-items: center;
-        max-width: 80%;
+        width: 100%;
 
         .food {
             padding: 1em;
@@ -115,11 +115,16 @@
 
 @media screen and (max-width: 600px) {
     .DayContent {
-        width: 80%;
+        width: 100%;
+        padding: 0.5em;
 
         .filter-bar {
             width: 100%;
             gap: 1em;
+        }
+
+        .food-display {
+            width: 100%;
         }
     }
 }
