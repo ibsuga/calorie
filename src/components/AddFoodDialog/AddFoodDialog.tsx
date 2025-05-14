@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import './AddFoodDialog.css';
 import { Dialog } from 'primereact/dialog';
-import useFoodStore, { foodType } from '../../store/FoodStore';
+import useFoodStore, { foodType, ingredientType } from '../../store/FoodStore';
 import LibraryItem from '../DayContent/LibraryItem/LibraryItem';
 import { mealType } from '../../store/FoodStore';
 import { DateContext } from '../../App';
@@ -22,7 +22,7 @@ function AddFoodDialog(props: {
     let availableFoods = [...foodLibrary]
     if (dateId && history[dateId]) {
         const today_history = history[dateId][props.meal];
-        availableFoods = foodLibrary.filter((food: foodType) => !today_history.includes(food.id))
+        availableFoods = foodLibrary.filter((food: foodType) => !today_history.some((ingredient: ingredientType) => ingredient.food == food.id))
     }
 
     const handleAddFood = (id: number) => {

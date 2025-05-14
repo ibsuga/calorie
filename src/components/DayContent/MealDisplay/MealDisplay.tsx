@@ -1,4 +1,4 @@
-import useFoodStore from "../../../store/FoodStore";
+import useFoodStore, { ingredientType } from "../../../store/FoodStore";
 import AddFoodDialog from "../../AddFoodDialog/AddFoodDialog";
 
 import { DateContext } from "../../../App";
@@ -11,34 +11,26 @@ function MealDisplay(props: {
     meal: mealType,
     isListView: boolean,
 }) {
-    const food = useFoodStore((state) => state.food)
     const history = useFoodStore((state) => state.history)
     const dateId = useContext(DateContext);
 
     const food_list = useMemo(() => {
         if (dateId && history[dateId]) {
-            return history[dateId][props.meal].map((food_id: number) => {
-                const food_item = food.find((f) => f.id === food_id)
-                if (food_item) {
-                    return <FoodCard
-                        key={food_id}
-                        id={food_id}
-                        meal={props.meal}
-                        name={food_item.name}
-                        calories={food_item.calories}
-                        isListView={props.isListView}
-
-                    />
-                }
+            return history[dateId][props.meal].map((ingredient: ingredientType, index: number) => {
+                return <FoodCard
+                    key={index}
+                    food={ingredient.food}
+                    grams={ingredient.grams}
+                    meal={props.meal}
+                    isListView={props.isListView}
+                />
             })
         } else {
             return <span>NO DATE SELECTED</span>
         }
     }, [dateId, history, props.isListView])
 
-
     return (
-
         <div className="MealDisplay">
             <AddFoodDialog title={props.meal} meal={props.meal} />
             <div className='food'>

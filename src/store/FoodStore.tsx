@@ -23,11 +23,17 @@ export const getDateFromId = (id: string) => {
 
 export type mealType = 'breakfast' | 'lunch' | 'dinner' | 'snacks';
 
+
+export type ingredientType = {
+    'food': number,
+    'grams': number,
+}
+
 type mealsType = {
-    'breakfast': number[],
-    'lunch': number[],
-    'dinner': number[],
-    'snacks': number[],
+    'breakfast': ingredientType[],
+    'lunch': ingredientType[],
+    'dinner': ingredientType[],
+    'snacks': ingredientType[],
 };
 
 type historyType = {
@@ -50,14 +56,16 @@ type foodStore = {
     food: foodType[] | [],
     history: historyType,
     categoryIcons: { [key: string]: JSX.Element },
+    calorieLimit: number,
     createFood: (category: string, name: string, calories: number, protein: number, carbohidrates: number, fats: number, fibre: number, salts: number) => void,
     deleteFood: (id: number) => void,
     createHistory: (day: string) => void,
     deleteHistory: (day: string) => void,
     addFoodToHistory: (day: string, meal: mealType, food_id: number) => void,
     removeFoodFromHistory: (day: string, meal: mealType, food_id: number) => void,
+    updateFoodGrams: (day: string, meal: mealType, food_id: number, grams: number) => void,
+    updateCalorieLimit: (calories: number) => void,
 }
-
 
 const useFoodStore = create<foodStore>((set) => ({
     food: localStorage.getItem('FoodLibrary') ? JSON.parse(localStorage.getItem('FoodLibrary') || '') : [],
@@ -70,6 +78,7 @@ const useFoodStore = create<foodStore>((set) => ({
         'grain': <GiGrainBundle />,
         'drink': <RiDrinks2Line />,
     },
+    calorieLimit: localStorage.getItem('CalorieLimit') ? JSON.parse(localStorage.getItem('CalorieLimit') || '') : [],
 
     createFood: (category, name, calories, protein, carbohidrates, fats, fibre, salts) => set((state) => {
         let food = [...state.food];
@@ -119,16 +128,34 @@ const useFoodStore = create<foodStore>((set) => ({
 
     addFoodToHistory: (day, meal, food_id) => set((state) => {
         let history = { ...state.history };
-        history[day][meal].push(food_id)
+        history[day][meal].push({
+            'food': food_id,
+            'grams': 0
+        })
         localStorage.setItem('History', JSON.stringify(history));
         return { history }
     }),
 
     removeFoodFromHistory: (day, meal, food_id) => set((state) => {
         let history = { ...state.history };
-        history[day][meal] = history[day][meal].filter((food: number) => food !== food_id);
+        history[day][meal] = history[day][meal].filter((ingredient: ingredientType) => ingredient.food !== food_id);
         localStorage.setItem('History', JSON.stringify(history));
         return { history }
+    }),
+
+    updateFoodGrams: (day, meal, food_id, grams) => set((state) => {
+        let history = { ...state.history };
+        var index = history[day][meal].findIndex((ingredient) => ingredient.food == food_id);
+        if (index != -1) {
+            history[day][meal][index].grams = grams
+        }
+        localStorage.setItem('History', JSON.stringify(history));
+        return { history }
+    }),
+
+    updateCalorieLimit: (calories) => set(() => {
+        localStorage.setItem('CalorieLimit', JSON.stringify(calories));
+        return { "calorieLimit": calories }
     }),
 
 }))
