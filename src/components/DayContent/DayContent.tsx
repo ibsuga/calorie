@@ -75,7 +75,7 @@ function DayContent() {
             </div>
 
             <CalorieBar
-                max_value={calorieLimit}
+                calorie_limit={calorieLimit}
                 valueBreakfast={meal_calories[0]}
                 valueLunch={meal_calories[1]}
                 valueDinner={meal_calories[2]}
