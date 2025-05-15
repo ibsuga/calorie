@@ -6,9 +6,12 @@ import MealDisplay from './MealDisplay/MealDisplay';
 import { useContext, useMemo, useState } from 'react';
 import useFoodStore, { foodType, ingredientType, mealType } from '../../store/FoodStore';
 import { DateContext } from '../../App';
+import MenuBar from '../MenuBar/MenuBar';
 
 
-function DayContent() {
+function DayContent(props: {
+    setDateId: (id: string) => void
+}) {
 
     const [isListView, setIsListView] = useState(false);
 
@@ -49,6 +52,9 @@ function DayContent() {
 
     return (
         <div className="DayContent">
+
+            <MenuBar setDateId={props.setDateId} />
+
 
             <div className="filter-bar">
 

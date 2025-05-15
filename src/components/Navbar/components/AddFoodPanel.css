@@ -1,6 +1,7 @@
 .AddFoodPanel {
     position: relative;
     z-index: 3;
+    justify-self: end;
 
     button {
         position: inherit;
@@ -9,34 +10,17 @@
         transition: 0.5s;
     }
 
-    .button-open svg {
-        margin-bottom: -4px;
-        border-radius: var(--default-border-radius);
-        transition: ease-in-out 0.5s;
-        color: var(--font-color-contrast);
+    .add-food-button {
+        font-family: var(--font-title);
+        font-size: var(--font-title-size);
+        transition: 0.5s;
 
-        /* &:hover {
-            background-color: hsl(0, 0%, 30%);
-        } */
+        &:hover {
+            color: var(--accent-color);
+            cursor: pointer;
+        }
     }
 
-    .button-close {
-        background-color: transparent;
-        border: none;
-    }
-
-    .button-close svg {
-        margin-bottom: -4px;
-        border-radius: var(--default-border-radius);
-        transform: rotateZ(225deg);
-        transition: ease-in-out 0.5s;
-        color: var(--font-color-default);
-
-        /* &:hover {
-            background-color: hsl(0, 0%, 30%);
-
-        } */
-    }
 
     .food-panel {
         display: grid;

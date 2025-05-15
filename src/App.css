@@ -17,12 +17,15 @@
   --font-color-default: hsl(0, 0%, 20%);
   --font-color-contrast: hsl(0, 0%, 80%);
   --font-color-clear: hsl(0, 0%, 30%);
-  --accent-color: hsl(160, 85%, 30%);
-  --accent-color-transparent: hsl(160, 85%, 30%, 0.5);
+  --default-color: hsl(145, 85%, 10%);
+  --accent-color: hsl(145, 85%, 30%);
+  --clear-color: hsla(145, 85%, 90%, 0.5);
+  --accent-color-transparent: hsl(145, 85%, 30%, 0.75);
   --font-default: "Outfit";
   --font-title: "Galada";
   --font-ticket: "Share Tech Mono", monospace;
   --default-border-radius: 20px;
+  --font-title-size: 2rem;
 }
 
 
@@ -97,11 +100,22 @@ input[type=number] {
   .app-content {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    align-items: center;
-    padding: 1em;
+    justify-content: start;
+
+    width: 60%;
     z-index: 1;
     gap: 2em;
+
+  }
+
+  .flavor-text {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    transform: rotateZ(-5deg);
+    font-size: 2rem;
+    line-height: 0px;
+    margin-top: -25px;
+    text-align: center;
   }
 
 }

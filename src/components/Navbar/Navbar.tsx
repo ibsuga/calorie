@@ -7,14 +7,11 @@ function Navbar() {
     return (
         <div className="Navbar">
 
+            <LibraryDialog />
+
             <span className='title'>Calorie</span>
 
-            <div className="icons">
-
-                <LibraryDialog />
-
-                <AddFoodPanel />
-            </div>
+            <AddFoodPanel />
 
         </div>
     )

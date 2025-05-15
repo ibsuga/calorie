@@ -7,7 +7,7 @@
         transition: 0.5s;
 
         &:hover {
-            color: var(--accent-color-transparent);
+            color: var(--accent-color);
             cursor: pointer;
         }
     }

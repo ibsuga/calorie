@@ -29,9 +29,10 @@ function App() {
 
           <Navbar />
 
-          <MenuBar setDateId={setDateId} />
+          <span className="flavor-text">Eat healthy!</span>
 
-          <DayContent />
+          <DayContent setDateId={setDateId} />
+
         </div>
       </DateContext.Provider>
 

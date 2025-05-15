@@ -40,12 +40,12 @@ function AddFoodPanel() {
     return (
         <div className="AddFoodPanel">
 
-            <button
-                className={isPanelOpen ? 'button-close' : 'button-open'}
+            <div
+                className='add-food-button'
                 onClick={() => setIsPanelOpen(!isPanelOpen)}
             >
-                < IoAdd className='panel-button' />
-            </button>
+                Add Food
+            </div>
             <AnimatePresence>
                 {
                     isPanelOpen &&

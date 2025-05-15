@@ -23,16 +23,11 @@ function MenuBar(props: {
 
     return (
         <div className="MenuBar">
-
-            <MdOutlineKeyboardArrowLeft />
-
             <Calendar
                 value={date}
                 onChange={(e) => handleDateChange(e.value)}
-                dateFormat='MM, d'
+                dateFormat='DD, MM d'
             />
-
-            <MdOutlineKeyboardArrowRight />
 
         </div>
     )
