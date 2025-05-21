@@ -8,6 +8,8 @@ import useFoodStore, { foodType, ingredientType, mealType } from '../../store/Fo
 import { DateContext } from '../../App';
 import MenuBar from '../MenuBar/MenuBar';
 
+import { PiAvocadoFill } from "react-icons/pi";
+
 
 function DayContent(props: {
     setDateId: (id: string) => void
@@ -49,23 +51,23 @@ function DayContent(props: {
     const total_calories = meal_calories.reduce((prev: number, current: number) => prev + current, 0)
 
 
-
     return (
         <div className="DayContent">
 
-            <MenuBar setDateId={props.setDateId} />
+            <div className="DayContent-header">
+                <MenuBar setDateId={props.setDateId} mealCalories={meal_calories} totalCalories={total_calories} calorieLimit={calorieLimit} />
 
-
-            <div className="filter-bar">
-
-                <div className="calorie-counter">
-                    <span> {total_calories} /</span>
-                    <input type="number" value={calorieLimit} onChange={(e) => updateCalorieLimit(Number(e.target.value))} />
-                    <span>kcal</span>
-
+                <div className="max-calories">
+                    <input type="tel" value={calorieLimit} onChange={(e) => updateCalorieLimit(Number(e.target.value))} />
+                    <span>CALORIE LIMIT</span>
+                    <PiAvocadoFill />
+                    <div className="decoration" />
                 </div>
+            </div>
 
-                {/* <div className="filter-meals">
+            {/* <div className="filter-bar"> */}
+
+            {/* <div className="filter-meals">
                     <button>Breakfast</button>
                     <button>Lunch</button>
                     <button>Dinner</button>
@@ -73,34 +75,27 @@ function DayContent(props: {
                     <button>All</button>
                 </div> */}
 
-                <div className="view-mode">
+            {/* <div className="view-mode">
                     <button onClick={() => setIsListView(false)}> <PiCards /> </button>
                     <button onClick={() => setIsListView(true)}><IoIosList /> </button>
-                </div>
+                </div> */}
 
-            </div>
+            {/* </div> */}
 
-            <CalorieBar
-                calorie_limit={calorieLimit}
-                valueBreakfast={meal_calories[0]}
-                valueLunch={meal_calories[1]}
-                valueDinner={meal_calories[2]}
-                valueSnacks={meal_calories[3]}
-            />
 
 
             <div className="food-display">
 
-                <MealDisplay meal="breakfast" isListView={isListView} />
+                <MealDisplay meal="breakfast" calorieCount={meal_calories[0]} isListView={isListView} />
 
-                <MealDisplay meal="lunch" isListView={isListView} />
+                <MealDisplay meal="lunch" calorieCount={meal_calories[1]} isListView={isListView} />
 
-                <MealDisplay meal="dinner" isListView={isListView} />
+                <MealDisplay meal="dinner" calorieCount={meal_calories[2]} isListView={isListView} />
 
-                <MealDisplay meal="snacks" isListView={isListView} />
+                <MealDisplay meal="snacks" calorieCount={meal_calories[3]} isListView={isListView} />
 
             </div>
-        </div>
+        </div >
     )
 }
 

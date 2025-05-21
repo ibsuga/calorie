@@ -19,13 +19,19 @@
   --font-color-clear: hsl(0, 0%, 30%);
   --default-color: hsl(145, 85%, 10%);
   --accent-color: hsl(145, 85%, 30%);
-  --clear-color: hsla(145, 85%, 90%, 0.5);
+  --clear-color: hsla(90, 64%, 90%, 0.25);
   --accent-color-transparent: hsl(145, 85%, 30%, 0.75);
   --font-default: "Outfit";
   --font-title: "Galada";
   --font-ticket: "Share Tech Mono", monospace;
   --default-border-radius: 20px;
   --font-title-size: 2rem;
+
+
+  --color-breakfast: #9DD926;
+  --color-lunch: #5FBB35;
+  --color-dinner: #5A9E1A;
+  --color-snacks: #53ACA8;
 }
 
 

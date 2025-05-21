@@ -19,6 +19,7 @@ function FoodCard(props: {
     const removeFoodFromHistory = useFoodStore((state) => state.removeFoodFromHistory);
     const updateFoodGrams = useFoodStore((state) => state.updateFoodGrams);
     const food = useFoodStore((state) => state.food);
+    const categoryIcons = useFoodStore((state) => state.categoryIcons);
     const food_data = food.find((food: foodType) => food.id == props.food);
 
 
@@ -48,7 +49,7 @@ function FoodCard(props: {
             onMouseLeave={() => setIsHovered(false)}
         >
 
-            <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
+            {/* <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
                 {isHovered ?
                     <div
                         onClick={handleDelete}
@@ -58,21 +59,44 @@ function FoodCard(props: {
                         <MdDeleteOutline />
                     </div>
                     :
-                    <div><TbMeat /></div>
-
+                    
                 }
+            </div> */}
+
+            <div className="food-image">
+                {food_data?.category && categoryIcons[food_data?.category]}
             </div>
 
             <div className="food-data" onTouchStart={handleTouchHover}>
+
                 <div className="food-name">{food_data?.name}</div>
-                <div className="calories">
-                    <span className='number'>{calories_calc}</span>
-                    <span> kcal</span>
+
+                <div className="macros">
+                    <div className='label'>protein</div>
+                    <div className='label'>carbs</div>
+                    <div className='label'>fats</div>
+                    <div className='label'>fibre</div>
+                    <div className='label'>salts</div>
+                    <div className='value'>{food_data?.protein}</div>
+                    <div className='value'>{food_data?.carbohidrates}</div>
+                    <div className='value'>{food_data?.fats}</div>
+                    <div className='value'>{food_data?.fibre}</div>
+                    <div className='value'>{food_data?.salts}</div>
                 </div>
-                <div className="food-grams">
-                    <input type="number" className='grams' placeholder='0' value={props.grams} onChange={handleUpdate} />
-                    <span>gr</span>
+
+                <div className='footer'>
+
+                    <div className="food-grams">
+                        <input type="number" className='grams' placeholder='0' value={props.grams} onChange={handleUpdate} />
+                        <span>gr</span>
+                    </div>
+                    <div className="calories">
+                        <span className='number'>{calories_calc}</span>
+                        <span>kcal</span>
+                    </div>
+
                 </div>
+
             </div>
 
         </div>

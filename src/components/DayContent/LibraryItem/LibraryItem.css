@@ -1,7 +1,7 @@
 .Libraryitem {
     font-family: var(--font-default);
     display: grid;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 1fr 8fr 1fr;
     align-items: center;
     width: 60em;
     height: 3em;
@@ -35,7 +35,7 @@
 
     .food-data {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 2fr 1fr;
+        grid-template-columns: 2fr 1fr 2fr;
         align-items: center;
 
         .food-name {
@@ -51,6 +51,7 @@
 
         .calories {
             font-size: 1em;
+            text-align: center;
 
             .number {
                 font-weight: bold;
@@ -58,9 +59,9 @@
         }
 
         .macros {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 0.5em;
+            display: flex;
+            gap: 1.5em;
+            text-align: center;
 
             div {
                 line-height: 20px;
@@ -82,8 +83,20 @@
     }
 
     button {
-        width: 5em;
+        width: 4em;
+        height: 2.5em;
         justify-self: center;
+        transition: 0.25s;
+
+        &:hover {
+            color: hsl(0, 45%, 55%);
+        }
+
+        svg {
+            font-size: 1.5em;
+            margin-top: 2px;
+
+        }
     }
 }
 

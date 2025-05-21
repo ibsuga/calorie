@@ -1,7 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import background from './assets/food-background.jpg'
-import MenuBar from './components/MenuBar/MenuBar'
 import DayContent from './components/DayContent/DayContent'
 import { createContext, useEffect, useState } from 'react'
 import useFoodStore from './store/FoodStore'

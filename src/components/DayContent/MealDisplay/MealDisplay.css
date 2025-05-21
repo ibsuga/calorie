@@ -1,0 +1,47 @@
+.MealDisplay {
+
+    font-family: var(--font-default);
+    background-color: hsla(40, 20%, 90%, 0.25);
+    border-radius: var(--default-border-radius);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+
+    .food {
+        padding: 1em;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5em;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: auto min-content min-content;
+        gap: 1em;
+        align-items: end;
+        color: var(--default-color);
+        border-bottom: 2px solid var(--default-color);
+
+        .title {
+            font-size: 2em;
+            margin-bottom: -0.25em;
+            text-transform: capitalize;
+            font-family: var(--font-title);
+        }
+
+        .calorie-count {
+            gap: 0.25em;
+
+            .value {
+                font-size: 1.5em;
+                margin-right: 0.2em;
+                align-items: end;
+            }
+
+            :last-child {
+                font-weight: 400;
+                font-size: 0.9em;
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
     position: relative;
     width: 7em;
     height: 7em;
-    background-color: var(--accent-color-transparent);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5em;
     align-content: center;
@@ -28,7 +28,7 @@
 
 
     .icon-selector-panel {
-        background-color: #6bad97;
+        background-color: var(--accent-color);
         /* border-radius: var(--default-border-radius); */
 
         width: 18em;

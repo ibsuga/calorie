@@ -1,9 +1,7 @@
 .MenuBar {
-    display: flex;
-
-    height: 3em;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
 
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     border-radius: var(--default-border-radius);
@@ -11,25 +9,25 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     user-select: none;
-
-
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background: hsl(0, 0%, 70%, 0.5);
-
-
-    /* background: hsl(0, 0%, 70%, 0.5);
-    color: hsl(0, 0%, 15%); */
-
-    background: hsla(35, 100%, 90%, 0.2);
-    /* background: rgba(255, 255, 255, 0.20); */
-    flex-grow: 1;
+    background: var(--clear-color);
     padding: 0.5em;
-    margin-bottom: 2em;
+
+
+    &>div:first-child {
+        display: grid;
+        grid-template-columns: auto min-content;
+        align-items: center;
+        white-space: nowrap;
+        padding: 0em 1em;
+    }
 
     span {
         font-family: var(--font-default);
-        font-size: 1.25em;
+        font-size: 1.5em;
+        /* outline: 1px solid red; */
+
     }
 
     svg {
@@ -37,9 +35,17 @@
         font-size: 2em;
     }
 
+    .CalorieBar {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .label {
+        font-size: 0.6em;
+    }
 
     .p-calendar {
-        width: 45em;
+        width: 100%;
         height: 2em;
     }
 
@@ -47,11 +53,15 @@
         background-color: transparent;
         border: unset;
 
+        color: var(--default-color);
+        text-align: left;
+
+
         cursor: pointer;
         caret-color: transparent;
         user-select: none;
 
-        text-align: center;
+        /* text-align: center; */
         font-family: var(--font-default);
         font-size: 1em;
 

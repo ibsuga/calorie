@@ -1,3 +1,4 @@
+import './MealDisplay.css';
 import useFoodStore, { ingredientType } from "../../../store/FoodStore";
 import AddFoodDialog from "../../AddFoodDialog/AddFoodDialog";
 
@@ -7,9 +8,11 @@ import { mealType } from "../../../store/FoodStore";
 import FoodCard from "../FoodCard/FoodCard";
 
 
+
 function MealDisplay(props: {
     meal: mealType,
     isListView: boolean,
+    calorieCount: number,
 }) {
     const history = useFoodStore((state) => state.history)
     const dateId = useContext(DateContext);
@@ -32,7 +35,21 @@ function MealDisplay(props: {
 
     return (
         <div className="MealDisplay">
-            <AddFoodDialog title={props.meal} meal={props.meal} />
+
+            <div className='header'>
+                <span className='title'>{props.meal}</span>
+
+                <div className='calorie-count'>
+                    <span className='value'>{props.calorieCount}</span>
+                    <span>kcal</span>
+                </div>
+
+                <AddFoodDialog meal={props.meal} />
+            </div>
+
+
+
+
             <div className='food'>
                 {food_list}
             </div>

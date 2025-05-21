@@ -9,7 +9,6 @@ import { DateContext } from '../../App';
 
 
 function AddFoodDialog(props: {
-    title: string;
     meal: mealType;
 }) {
     const [isLibraryDialogOpen, setIsLibraryDialogOpen] = useState(false);
@@ -35,10 +34,8 @@ function AddFoodDialog(props: {
         <>
             <div className="AddFoodDialog">
 
-                <span className='section-title'>{props.title}</span>
-
                 <button onClick={() => setIsLibraryDialogOpen(true)}>
-                    <span> Add Food </span>
+                    +
                 </button>
 
             </div>
