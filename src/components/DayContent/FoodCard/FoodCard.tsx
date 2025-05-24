@@ -41,6 +41,11 @@ function FoodCard(props: {
     }
 
     const calories_calc = props.grams * (food_data ? food_data.calories : 0) / 100;
+    const protein_calc = props.grams * (food_data ? food_data.protein : 0) / 100;
+    const carbohidrates_calc = props.grams * (food_data ? food_data.carbohidrates : 0) / 100;
+    const fats_calc = props.grams * (food_data ? food_data.fats : 0) / 100;
+    const fibre_calc = props.grams * (food_data ? food_data.fibre : 0) / 100;
+    const salts_calc = props.grams * (food_data ? food_data.salts : 0) / 100;
 
     return (
         <div
@@ -77,11 +82,11 @@ function FoodCard(props: {
                     <div className='label'>fats</div>
                     <div className='label'>fibre</div>
                     <div className='label'>salts</div>
-                    <div className='value'>{food_data?.protein}</div>
-                    <div className='value'>{food_data?.carbohidrates}</div>
-                    <div className='value'>{food_data?.fats}</div>
-                    <div className='value'>{food_data?.fibre}</div>
-                    <div className='value'>{food_data?.salts}</div>
+                    <div className='value'>{protein_calc}</div>
+                    <div className='value'>{carbohidrates_calc}</div>
+                    <div className='value'>{fats_calc}</div>
+                    <div className='value'>{fibre_calc}</div>
+                    <div className='value'>{salts_calc}</div>
                 </div>
 
                 <div className='footer'>

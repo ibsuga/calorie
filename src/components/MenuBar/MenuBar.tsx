@@ -5,12 +5,14 @@ import { Nullable } from 'primereact/ts-helpers';
 
 import { getIdFromDate } from '../../store/FoodStore';
 import CalorieBar from '../DayContent/CalorieBar/CalorieBar';
+import { dayTotalMacrosType } from '../DayContent/DayContent';
 
 
 function MenuBar(props: {
     setDateId: (id: string) => void,
     mealCalories: number[],
-    totalCalories: number,
+    dayTotalCalories: number,
+    dayTotalMacros: dayTotalMacrosType,
     calorieLimit: number,
 }) {
     const [date, setDate] = useState<Nullable<Date>>(new Date());
@@ -32,7 +34,18 @@ function MenuBar(props: {
                     onChange={(e) => handleDateChange(e.value)}
                     dateFormat='DD, MM d'
                 />
-                <span>{props.totalCalories} <span className="label">kcal</span></span>
+
+                {/* TO DO */}
+                <div className='macros'>
+                    <span>protein:{props.dayTotalMacros.protein}</span>
+                    <span>carbs:{props.dayTotalMacros.carbohidrates}</span>
+                    <span>fats:{props.dayTotalMacros.fats}</span>
+                    <span>fibre:{props.dayTotalMacros.fibre}</span>
+                    <span>salts:{props.dayTotalMacros.salts}</span>
+                </div>
+
+
+                <span>{props.dayTotalCalories} <span className="label">kcal</span></span>
             </div>
 
             <CalorieBar

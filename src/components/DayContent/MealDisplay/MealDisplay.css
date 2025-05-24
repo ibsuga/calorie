@@ -16,7 +16,7 @@
 
     .header {
         display: grid;
-        grid-template-columns: auto min-content min-content;
+        grid-template-columns: auto min-content min-content min-content;
         gap: 1em;
         align-items: end;
         color: var(--default-color);
@@ -33,14 +33,37 @@
             gap: 0.25em;
 
             .value {
-                font-size: 1.5em;
+                font-size: 1.75em;
                 margin-right: 0.2em;
                 align-items: end;
+                color: var(--accent-color);
             }
 
             :last-child {
                 font-weight: 400;
-                font-size: 0.9em;
+                font-size: 1em;
+            }
+        }
+
+        .macros-count {
+            display: flex;
+            align-items: end;
+
+            span:nth-child(odd) {
+                margin-left: 1em;
+                font-size: 1.25em;
+                color: var(--accent-color);
+            }
+
+            span:last-child {
+                margin-left: unset;
+            }
+
+            span:nth-child(even) {
+                text-transform: uppercase;
+                font-size: 0.65em;
+                font-weight: 500;
+                margin-bottom: 3px;
             }
         }
     }
