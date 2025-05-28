@@ -30,6 +30,7 @@
             width: 100%;
         }
     }
+
 }
 
 .p-dialog {
@@ -49,6 +50,10 @@
         width: 2em;
     }
 
+    .p-dialog-content {
+        display: flex;
+    }
+
     .dialog-content {
         display: flex;
         flex-direction: column;
@@ -59,6 +64,54 @@
         .dialog-title {
             text-transform: capitalize;
             user-select: none;
+        }
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 15em;
+
+            .search-bar {
+                display: flex;
+                gap: 0.5em;
+
+                input {
+                    position: relative;
+                    font-family: var(--font-default);
+                    font-size: 1em;
+                    width: 15em;
+                    height: 2em;
+                    padding: 0em 2em;
+                    border: none;
+                    background: none;
+
+                    border-bottom: 2px solid var(--default-color);
+                    transition: 0.25s;
+
+                    &:focus {
+                        outline: unset;
+                        border-bottom: 2px solid var(--accent-color);
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    color: var(--accent-color);
+                    font-size: 1.25em;
+                    align-self: center;
+
+                    margin-bottom: 15px;
+
+                }
+
+            }
+        }
+
+        .food-display {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5em;
         }
     }
 }

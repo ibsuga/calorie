@@ -37,7 +37,7 @@ function MealDisplay(props: {
     }, [dateId, history, props.isListView])
 
     return (
-        <div className="MealDisplay">
+        <div className='MealDisplay'>
 
             <div className='header'>
                 <span className='title'>{props.meal}</span>

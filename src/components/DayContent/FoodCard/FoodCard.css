@@ -6,6 +6,7 @@
     position: relative;
     font-size: 0.95rem;
     width: 14em;
+    /* height: 6em; */
 
     --clear-color: hsl(35, 15%, 90%);
     background: var(--clear-color);
@@ -26,9 +27,12 @@
     }
 
 
+
+
     .food-data {
         position: relative;
         z-index: 1;
+        /* display: flex; */
 
         .food-name {
             color: var(--text-color);
@@ -36,7 +40,11 @@
             font-family: var(--font-title);
             font-size: 1.75em;
             text-align: center;
-            line-height: 1em;
+            line-height: 1.2em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* text-wrap: nowrap; */
         }
 
         .macros {
@@ -44,7 +52,7 @@
 
             margin: 0 -0.5em;
             padding: 0.25em 0.5em;
-
+            font-family: var(--font-default);
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             text-align: center;
@@ -123,6 +131,34 @@
         }
 
     }
+
+    &.lunch {
+        border: 0.4em solid var(--color-lunch);
+
+        .macros {
+            background-color: color-mix(in hsl, var(--color-lunch), transparent 50%);
+
+        }
+    }
+
+    &.dinner {
+        border: 0.4em solid var(--color-dinner);
+
+        .macros {
+            background-color: color-mix(in hsl, var(--color-dinner), transparent 50%);
+
+        }
+    }
+
+    &.snacks {
+        border: 0.4em solid var(--color-snacks);
+
+        .macros {
+            background-color: color-mix(in hsl, var(--color-snacks), transparent 50%);
+
+        }
+    }
+
 }
 
 
@@ -136,6 +172,27 @@
         height: 10em;
         width: 15em;
         opacity: 30%;
+
+    }
+
+    &.lunch {
+        svg {
+            color: var(--color-lunch);
+        }
+
+    }
+
+    &.dinner {
+        svg {
+            color: var(--color-dinner);
+        }
+
+    }
+
+    &.snacks {
+        svg {
+            color: var(--color-snacks);
+        }
 
     }
 }

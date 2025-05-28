@@ -46,9 +46,6 @@ function LibraryItem(props: {
                     <span>kcal</span>
                 </div>
 
-                {/* <div className="food-grams">100 gr</div> */}
-
-
 
                 <div className="macros">
                     <div>

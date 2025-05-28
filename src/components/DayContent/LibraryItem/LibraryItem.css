@@ -21,12 +21,11 @@
     .food-image {
         color: hsl(0, 0%, 80%);
         text-align: center;
-        font-size: 1.85em;
+        font-size: 0.5em;
         background-color: var(--accent-color-transparent);
         background: linear-gradient(90deg, rgba(98, 165, 142, 1) 19%, rgba(98, 165, 142, 0.54) 80%, rgba(98, 165, 142, 0) 100%);
         border-radius: 20px 0px 0px 20px;
         width: 100%;
-        justify-self: center;
 
         svg {
             margin-top: 6px;

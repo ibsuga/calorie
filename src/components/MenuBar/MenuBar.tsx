@@ -16,6 +16,7 @@ function MenuBar(props: {
     calorieLimit: number,
 }) {
     const [date, setDate] = useState<Nullable<Date>>(new Date());
+    const [macroCalorieToggle, setMacroCalorieToggle] = useState(false);
 
     const handleDateChange = (new_date: Nullable<Date>) => {
         console.log('handling date change!')
@@ -35,17 +36,24 @@ function MenuBar(props: {
                     dateFormat='DD, MM d'
                 />
 
-                {/* TO DO */}
-                <div className='macros'>
-                    <span>protein:{props.dayTotalMacros.protein}</span>
-                    <span>carbs:{props.dayTotalMacros.carbohidrates}</span>
-                    <span>fats:{props.dayTotalMacros.fats}</span>
-                    <span>fibre:{props.dayTotalMacros.fibre}</span>
-                    <span>salts:{props.dayTotalMacros.salts}</span>
-                </div>
+                {
+                    macroCalorieToggle ?
 
-
-                <span>{props.dayTotalCalories} <span className="label">kcal</span></span>
+                        <div className='macros' onClick={() => setMacroCalorieToggle(!macroCalorieToggle)}>
+                            <span>{props.dayTotalMacros.protein}</span>
+                            <span>protein</span>
+                            <span>{props.dayTotalMacros.carbohidrates}</span>
+                            <span>carbs</span>
+                            <span>{props.dayTotalMacros.fats}</span>
+                            <span>fats</span>
+                            <span>{props.dayTotalMacros.fibre}</span>
+                            <span>fibre</span>
+                            <span>{props.dayTotalMacros.salts}</span>
+                            <span>salts</span>
+                        </div>
+                        :
+                        <span onClick={() => setMacroCalorieToggle(!macroCalorieToggle)}>{props.dayTotalCalories} <span className="label">kcal</span></span>
+                }
             </div>
 
             <CalorieBar

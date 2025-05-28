@@ -26,8 +26,7 @@
     span {
         font-family: var(--font-default);
         font-size: 1.5em;
-        /* outline: 1px solid red; */
-
+        cursor: pointer;
     }
 
     svg {
@@ -42,6 +41,27 @@
 
     .label {
         font-size: 0.6em;
+    }
+
+    .macros {
+        cursor: pointer;
+        margin-right: 1em;
+
+        span:nth-child(even) {
+            color: var(--default-color);
+            font-size: 0.65em;
+            margin-right: 0.75em;
+            text-transform: uppercase;
+        }
+
+        span:nth-child(odd) {
+            color: var(--accent-color);
+            font-size: 1.25em
+        }
+
+        span:last-child {
+            margin-right: unset;
+        }
     }
 
     .p-calendar {

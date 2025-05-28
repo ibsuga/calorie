@@ -1,7 +1,4 @@
 import './DayContent.css';
-import CalorieBar from './CalorieBar/CalorieBar';
-import { PiCards } from "react-icons/pi";
-import { IoIosList } from "react-icons/io";
 import MealDisplay from './MealDisplay/MealDisplay';
 import { useCallback, useContext, useMemo, useState } from 'react';
 import useFoodStore, { foodType, ingredientType, mealType } from '../../store/FoodStore';

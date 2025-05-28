@@ -11,6 +11,7 @@ function FoodCard(props: {
     grams: number,
     meal: mealType,
     isListView?: boolean
+    onClick?: () => void,
 }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isDeleteHovered, setIsDeleteHovered] = useState(false);
@@ -49,9 +50,10 @@ function FoodCard(props: {
 
     return (
         <div
-            className={`FoodCard ${props.isListView ? "list" : ""}`}
+            className={`FoodCard ${props.meal}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={props.onClick}
         >
 
             {/* <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
@@ -68,7 +70,7 @@ function FoodCard(props: {
                 }
             </div> */}
 
-            <div className="food-image">
+            <div className={`food-image ${props.meal}`}>
                 {food_data?.category && categoryIcons[food_data?.category]}
             </div>
 
