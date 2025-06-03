@@ -1,12 +1,15 @@
 .FoodCard {
+    cursor: pointer;
 
     --text-color: color-mix(in hsl, var(--color-breakfast), var(--default-color) 80%);
+
+    --delete-mode-color: hsl(10, 100%, 65%);
+    --delete-mode-text-color: hsl(10, 100%, 25%);
 
 
     position: relative;
     font-size: 0.95rem;
     width: 14em;
-    /* height: 6em; */
 
     --clear-color: hsl(35, 15%, 90%);
     background: var(--clear-color);
@@ -26,13 +29,9 @@
         box-shadow: 4px 4px 15px 10px rgb(38, 57, 7, 0.4);
     }
 
-
-
-
     .food-data {
         position: relative;
         z-index: 1;
-        /* display: flex; */
 
         .food-name {
             color: var(--text-color);
@@ -50,12 +49,16 @@
         .macros {
             background-color: color-mix(in hsl, var(--color-breakfast), transparent 50%);
 
+            transition: 0.25s;
+
+
             margin: 0 -0.5em;
             padding: 0.25em 0.5em;
             font-family: var(--font-default);
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             text-align: center;
+
 
             &>* {
                 /* border-left: 1px solid var(--color-breakfast); */
@@ -66,15 +69,17 @@
             .label {
                 font-size: 0.65em;
                 text-transform: uppercase;
-                /* color: color-mix(in hsl, var(--clear-color), white 70%); */
                 color: color-mix(in hsl, var(--text-color), transparent 50%);
+                transition: 0.25s;
+
             }
 
             .value {
                 font-size: 0.85em;
                 font-weight: bold;
                 color: color-mix(in hsl, var(--text-color), transparent 50%);
-                /* color: var(--text-color); */
+                transition: 0.25s;
+
             }
 
         }
@@ -132,6 +137,7 @@
 
     }
 
+    /* LUNCH */
     &.lunch {
         border: 0.4em solid var(--color-lunch);
 
@@ -139,8 +145,46 @@
             background-color: color-mix(in hsl, var(--color-lunch), transparent 50%);
 
         }
+
+        &.delete-mode {
+            border-color: var(--delete-mode-color);
+
+            .food-data {
+                .food-name {
+                    color: var(--delete-mode-text-color);
+                }
+
+                .footer {
+                    color: var(--delete-mode-text-color);
+
+                    input {
+                        color: var(--delete-mode-text-color);
+                    }
+                }
+            }
+
+            & .macros {
+                background-color: var(--delete-mode-color);
+
+                .label {
+                    color: var(--font-color-contrast);
+                }
+
+                .value {
+                    color: var(--font-color-contrast);
+                }
+            }
+
+            .food-image {
+                svg {
+                    color: var(--delete-mode-color);
+                }
+            }
+
+        }
     }
 
+    /* DINNER */
     &.dinner {
         border: 0.4em solid var(--color-dinner);
 
@@ -148,8 +192,46 @@
             background-color: color-mix(in hsl, var(--color-dinner), transparent 50%);
 
         }
+
+        &.delete-mode {
+            border-color: var(--delete-mode-color);
+
+            .food-data {
+                .food-name {
+                    color: var(--delete-mode-text-color);
+                }
+
+                .footer {
+                    color: var(--delete-mode-text-color);
+
+                    input {
+                        color: var(--delete-mode-text-color);
+                    }
+                }
+            }
+
+            & .macros {
+                background-color: var(--delete-mode-color);
+
+                .label {
+                    color: var(--font-color-contrast);
+                }
+
+                .value {
+                    color: var(--font-color-contrast);
+                }
+            }
+
+            .food-image {
+                svg {
+                    color: var(--delete-mode-color);
+                }
+            }
+
+        }
     }
 
+    /* SNACKS */
     &.snacks {
         border: 0.4em solid var(--color-snacks);
 
@@ -157,6 +239,81 @@
             background-color: color-mix(in hsl, var(--color-snacks), transparent 50%);
 
         }
+
+        &.delete-mode {
+            border-color: var(--delete-mode-color);
+
+            .food-data {
+                .food-name {
+                    color: var(--delete-mode-text-color);
+                }
+
+                .footer {
+                    color: var(--delete-mode-text-color);
+
+                    input {
+                        color: var(--delete-mode-text-color);
+                    }
+                }
+            }
+
+            & .macros {
+                background-color: var(--delete-mode-color);
+
+                .label {
+                    color: var(--font-color-contrast);
+                }
+
+                .value {
+                    color: var(--font-color-contrast);
+                }
+            }
+
+            .food-image {
+                svg {
+                    color: var(--delete-mode-color);
+                }
+            }
+
+        }
+    }
+
+    /* BREAKFAST */
+    &.delete-mode {
+        border-color: var(--delete-mode-color);
+
+        .food-data {
+            .food-name {
+                color: var(--delete-mode-text-color);
+            }
+
+            .footer {
+                color: var(--delete-mode-text-color);
+
+                input {
+                    color: var(--delete-mode-text-color);
+                }
+            }
+        }
+
+        & .macros {
+            background-color: var(--delete-mode-color);
+
+            .label {
+                color: var(--font-color-contrast);
+            }
+
+            .value {
+                color: var(--font-color-contrast);
+            }
+        }
+
+        .food-image {
+            svg {
+                color: var(--delete-mode-color);
+            }
+        }
+
     }
 
 }
@@ -164,6 +321,8 @@
 
 .food-image {
     svg {
+        transition: 0.25s;
+
         position: absolute;
         top: -1.6em;
         z-index: 0;

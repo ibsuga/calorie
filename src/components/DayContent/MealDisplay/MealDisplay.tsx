@@ -1,22 +1,23 @@
 import './MealDisplay.css';
 import useFoodStore, { ingredientType } from "../../../store/FoodStore";
 import AddFoodDialog from "../../AddFoodDialog/AddFoodDialog";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 import { DateContext } from "../../../App";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import { mealType } from "../../../store/FoodStore";
 import FoodCard from "../FoodCard/FoodCard";
-import { dayTotalMacrosType, mealsMacrosTotalsType } from '../DayContent';
+import { mealsMacrosTotalsType } from '../DayContent';
 
 
 
 function MealDisplay(props: {
     meal: mealType,
     mealIndex: number,
-    isListView: boolean,
     calorieCount: number[],
     mealsMacrosCount: mealsMacrosTotalsType,
 }) {
+    const [deleteMode, setDeleteMode] = useState(false);
     const history = useFoodStore((state) => state.history)
     const dateId = useContext(DateContext);
 
@@ -28,13 +29,16 @@ function MealDisplay(props: {
                     food={ingredient.food}
                     grams={ingredient.grams}
                     meal={props.meal}
-                    isListView={props.isListView}
+                    deleteMode={deleteMode}
                 />
             })
         } else {
             return <span>NO DATE SELECTED</span>
         }
-    }, [dateId, history, props.isListView])
+    }, [dateId, history, deleteMode])
+
+
+    console.log(deleteMode)
 
     return (
         <div className='MealDisplay'>
@@ -64,6 +68,8 @@ function MealDisplay(props: {
                     <span className='value'>{props.calorieCount[props.mealIndex]}</span>
                     <span>kcal</span>
                 </div>
+
+                <button className={`delete-food-button ${deleteMode ? 'active' : ''}`} onClick={() => setDeleteMode(!deleteMode)}> <RiDeleteBinLine /></button>
 
                 <AddFoodDialog meal={props.meal} />
             </div>

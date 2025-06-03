@@ -1,16 +1,14 @@
 import { useContext, useState } from 'react';
 import './FoodCard.css';
-import { TbMeat } from "react-icons/tb";
 import useFoodStore, { foodType, mealType } from '../../../store/FoodStore';
 import { DateContext } from '../../../App';
-import { MdDeleteOutline } from "react-icons/md";
 
 
 function FoodCard(props: {
     food: number,
     grams: number,
     meal: mealType,
-    isListView?: boolean
+    deleteMode?: boolean;
     onClick?: () => void,
 }) {
     const [isHovered, setIsHovered] = useState(false);
@@ -24,9 +22,11 @@ function FoodCard(props: {
     const food_data = food.find((food: foodType) => food.id == props.food);
 
 
-    function handleDelete() {
-        if (dateId && food_data) {
+    function handleClick() {
+        if (props.deleteMode && dateId && food_data) {
             removeFoodFromHistory(dateId, props.meal, food_data.id)
+        } else if (props.onClick) {
+            props.onClick()
         }
     }
 
@@ -48,28 +48,14 @@ function FoodCard(props: {
     const fibre_calc = props.grams * (food_data ? food_data.fibre : 0) / 100;
     const salts_calc = props.grams * (food_data ? food_data.salts : 0) / 100;
 
+
     return (
         <div
-            className={`FoodCard ${props.meal}`}
+            className={`FoodCard ${props.meal} ${props.deleteMode ? 'delete-mode' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={props.onClick}
+            onClick={handleClick}
         >
-
-            {/* <div className={`food-image ${isDeleteHovered ? "delete-mode" : ""}`}>
-                {isHovered ?
-                    <div
-                        onClick={handleDelete}
-                        onMouseEnter={() => setIsDeleteHovered(true)}
-                        onMouseLeave={() => setIsDeleteHovered(false)}
-                    >
-                        <MdDeleteOutline />
-                    </div>
-                    :
-                    
-                }
-            </div> */}
-
             <div className={`food-image ${props.meal}`}>
                 {food_data?.category && categoryIcons[food_data?.category]}
             </div>

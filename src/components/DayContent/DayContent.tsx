@@ -1,6 +1,6 @@
 import './DayContent.css';
 import MealDisplay from './MealDisplay/MealDisplay';
-import { useCallback, useContext, useMemo, useState } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 import useFoodStore, { foodType, ingredientType, mealType } from '../../store/FoodStore';
 import { DateContext } from '../../App';
 import MenuBar from '../MenuBar/MenuBar';
@@ -27,7 +27,6 @@ export type dayTotalMacrosType = {
 function DayContent(props: {
     setDateId: (id: string) => void
 }) {
-    const [isListView, setIsListView] = useState(false);
 
     const food = useFoodStore((state) => state.food);
     const history = useFoodStore((state) => state.history)
@@ -111,28 +110,24 @@ function DayContent(props: {
                     mealIndex={0}
                     calorieCount={meals_calorie_totals}
                     mealsMacrosCount={meals_macros_totals}
-                    isListView={isListView}
                 />
                 <MealDisplay
                     meal="lunch"
                     mealIndex={1}
                     calorieCount={meals_calorie_totals}
                     mealsMacrosCount={meals_macros_totals}
-                    isListView={isListView}
                 />
                 <MealDisplay
                     meal="dinner"
                     mealIndex={2}
                     calorieCount={meals_calorie_totals}
                     mealsMacrosCount={meals_macros_totals}
-                    isListView={isListView}
                 />
                 <MealDisplay
                     meal="snacks"
                     mealIndex={3}
                     calorieCount={meals_calorie_totals}
                     mealsMacrosCount={meals_macros_totals}
-                    isListView={isListView}
                 />
 
             </div>

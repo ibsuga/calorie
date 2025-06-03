@@ -13,8 +13,8 @@
     color: hsl(0, 0%, 15%);
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     border-radius: var(--default-border-radius);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
+    /* -webkit-backdrop-filter: blur(5px); */
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     transition: 0.25s;
 
